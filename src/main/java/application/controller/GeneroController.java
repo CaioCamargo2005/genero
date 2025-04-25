@@ -15,7 +15,7 @@ import application.repository.GeneroRepository;
 
 @Controller
 @RequestMapping(value = "/generos")
-public class IndexController {
+public class GeneroController {
     @Autowired
     private GeneroRepository database;
 

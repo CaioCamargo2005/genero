@@ -4,34 +4,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import jakarta.persistence.Column;
 
 @Entity
-@Table(name = "generos")
+@Table(name = "Livros")
 @Getter
 @Setter
-public class Genero {
+public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column (nullable = false)
-    private String nome;
+    @Column(nullable = false)
+    private String titulo;
 
-    public void setId(long id){
-        this.id = id;
-    }
-    public long getId(){
-        return this.id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getNome() {
-        return nome;
-    }
+    @ManyToOne
+    @JoinColumn(name= "id_genero", nullable = false)
+    private Genero genero;
+    
 }
